@@ -10,12 +10,6 @@ public class playerControl : MonoBehaviour
     public Rigidbody2D rb;
     
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -25,6 +19,6 @@ public class playerControl : MonoBehaviour
             rb.velocity = new Vector2(0, -speed);
         } else {
             rb.velocity = new Vector2(0, 0);
-        }
+        }    
     }
 }
