@@ -14,6 +14,24 @@ public class BallControl : MonoBehaviour
         StartCoroutine(GoBall());
     }
 
+    // POSSIBLE FIX for ball slowing down after bouncing - NOT NEEDED
+    /*
+    void Update() {
+        Vector2 vel = rb.velocity;
+
+        if (vel.x <18 && vel.x > -18 && vel.x !=0) {
+            Debug.Log("VEL before:"+vel.x);
+            if (vel.x>0)
+                vel.x = 20;
+            else 
+                vel.x = -20;
+            Debug.Log("VEL after:" + vel.x);
+            rb.velocity = vel;
+        }
+    }
+    */
+    
+
     public IEnumerator GoBall() {
         yield return new WaitForSeconds(2f);
         float randomNumber = Random.Range(0f, 1f);
@@ -101,5 +119,46 @@ function GoBall() {
 
 	
   rigidbody2D.AddForce(new Vector2(x, y));
+}
+ */
+
+
+/*
+ * add AI to Player 2
+ * must be set in player 2 object not here in the ball
+ * code is in JS, must converto to C#
+ * 
+ // https://www.youtube.com/watch?v=0xOcWG4PQdY&ab_channel=Brackeys
+
+#pragma strict
+ 
+var Player2 : Rigidbody2D;
+var ball : Transform;
+var speed : float = 10;
+ 
+var babyMode = .2;
+var easy = .3;
+var medium = .4;
+var hard = .5;
+var impossible = .6;
+ 
+ 
+function Update() {
+    var diffCalc = GameManager.playerScore01 - GameManager.playerScore02;
+    var difficulty;
+
+    if(diffCalc < 0) {
+        difficulty = babyMode;
+    } else if(diffCalc >= 0 && diffCalc < 5) {
+        difficulty = easy;
+    } else if(diffCalc >= 5 && diffCalc < 10) {
+        difficulty = medium;
+    } else if(diffCalc >= 10 && diffCalc < 16) {
+        difficulty = hard;
+    } else if(diffCalc >= 16){
+        difficulty = impossible;
+    }
+    
+    Player2.velocity.y = (ball.transform.position.y - Player2.transform.position.y) * speed * difficulty;
 }
  */
