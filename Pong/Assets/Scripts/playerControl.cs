@@ -8,8 +8,8 @@ public class playerControl : MonoBehaviour
     public KeyCode moveDown;
     public float speed = 10f;
     public Rigidbody2D rb;
-    
 
+    
     // Update is called once per frame
     void Update()
     {
