@@ -6,7 +6,7 @@ public class BallControl : MonoBehaviour
 {
     public Rigidbody2D rb;
     public float ballSpeed = 100f;
-    public new AudioSource audio;
+    public AudioSource audioSound;
 
     // Start is called before the first frame update
     void Start()
@@ -14,8 +14,9 @@ public class BallControl : MonoBehaviour
         StartCoroutine(GoBall());
     }
 
-    // POSSIBLE FIX for ball slowing down after bouncing - NOT NEEDED
-    /*
+    // POSSIBLE FIX for ball slowing down after bouncing
+    // eventually on some hits the ball slows down completely
+    
     void Update() {
         Vector2 vel = rb.velocity;
 
@@ -29,7 +30,7 @@ public class BallControl : MonoBehaviour
             rb.velocity = vel;
         }
     }
-    */
+    
     
 
     public IEnumerator GoBall() {
@@ -50,8 +51,8 @@ public class BallControl : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.collider.tag == "Player") {
-            audio.pitch = Random.Range(0.8f, 1.2f);
-            audio.Play();
+            audioSound.pitch = Random.Range(0.8f, 1.2f);
+            audioSound.Play();
             float velY = rb.velocity.y;
             float velX = rb.velocity.x;
             //float velX = 15f;

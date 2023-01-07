@@ -262,7 +262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 153083644}
   ballSpeed: 100
-  audio: {fileID: 153083649}
+  audioSound: {fileID: 153083649}
 --- !u!82 &153083649
 AudioSource:
   m_ObjectHideFlags: 0
@@ -954,7 +954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f94f4841736c814981b3a0327664353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 839115151}
+  audioSound: {fileID: 839115151}
 --- !u!82 &839115151
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1191,7 +1191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f94f4841736c814981b3a0327664353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 839115151}
+  audioSound: {fileID: 839115151}
 --- !u!82 &1570786566
 AudioSource:
   m_ObjectHideFlags: 0
