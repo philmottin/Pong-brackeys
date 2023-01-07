@@ -6,6 +6,7 @@ public class BallControl : MonoBehaviour
 {
     public Rigidbody2D rb;
     public float ballSpeed = 100f;
+    public new AudioSource audio;
 
     // Start is called before the first frame update
     void Start()
@@ -31,10 +32,12 @@ public class BallControl : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.collider.tag == "Player") {
+            audio.pitch = Random.Range(0.8f, 1.2f);
+            audio.Play();
             float velY = rb.velocity.y;
             float velX = rb.velocity.x;
             //float velX = 15f;
-            rb.velocity = new Vector2(velX, (velY / 2) + (collision.collider.attachedRigidbody.velocity.y / 3));
+            rb.velocity = new Vector2(velX, (-velY / 2) + (-collision.collider.attachedRigidbody.velocity.y / 3));
         }
     }    
 }
