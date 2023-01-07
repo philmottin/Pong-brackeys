@@ -5,15 +5,28 @@ using UnityEngine;
 public class BallControl : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public float ballSpeed = 100f;
+
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(GoBall());
+    }
+
+    public IEnumerator GoBall() {
+        yield return new WaitForSeconds(2f);
         float randomNumber = Random.Range(0f, 1f);
         if (randomNumber <= 0.5f) {
-            rb.AddForce(new Vector2(80f,10f));
+            rb.AddForce(new Vector2(ballSpeed, 10f));
         } else {
-            rb.AddForce(new Vector2(-80f, -10f));
-        }        
+            rb.AddForce(new Vector2(-ballSpeed, -10f));
+        }
+    }
+
+    public void ResetBall() {
+        transform.position = new Vector2(0f, 0f);
+        rb.velocity = new Vector2(0f, 0f);
+        StartCoroutine(GoBall());
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
