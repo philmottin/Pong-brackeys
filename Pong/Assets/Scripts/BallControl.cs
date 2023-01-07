@@ -71,3 +71,32 @@ rigidbody2D.velocity.y = rigidbody2D.velocity.y/2 + colInfo.collider.rigidbody2D
 
 the ball bounces faster and slower depending on impact angle and player movement.
  * */
+
+
+/*
+ * Here my script to shot the ball in a random angle with a range of 90° to each side: 
+
+var ballSpeed : float; //arround 300 is good
+
+function GoBall() {
+  var leftOrRight = Random.Range(0,2);
+  var randomAngle : float;
+  if(leftOrRight) {
+    //to right side with 90° range
+    randomAngle = Random.Range(-45,45) * ((2*Mathf.PI)/360); //degree into radian
+  }
+  else {
+    //to left side with 90° range
+    randomAngle = Random.Range(135,225) * ((2*Mathf.PI)/360);
+  }
+ 
+  var x : float;
+  var y : float;
+	
+  x = ballSpeed * Mathf.Cos(randomAngle);
+  y = ballSpeed * Mathf.Sin(randomAngle);
+
+	
+  rigidbody2D.AddForce(new Vector2(x, y));
+}
+ */
